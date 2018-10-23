@@ -4,7 +4,7 @@ public class RawInstance {
 	
 	String javaFilePath;
 	
-	static public final int NUMMETRICS = 6;
+	static public final int NUMMETRICS = 6; //metric 갯
 	// 인스턴스의 메트릭 값을 저장하는 field들.
 	int[] values = new int[NUMMETRICS];
 	

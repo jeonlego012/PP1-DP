@@ -3,6 +3,8 @@ package edu.handong.csee.pp1.dp;
 import java.io.File;
 import java.util.ArrayList;
 
+import org.eclipse.jdt.core.dom.MethodInvocation;
+
 import edu.handong.csee.pp1.dp.utils.JavaASTParser;
 import edu.handong.csee.pp1.dp.utils.Utils;
 import edu.handong.csee.pp1.dp.utils.WekaUtils;
@@ -30,7 +32,7 @@ public class MetricCollector {
 		if(Main.INFO)
 			System.out.println(javaFiles.size() + " java files were found. Instances with metrics will be generated");
 		
-		rawInstances = new ArrayList<RawInstance>(); // Instancew저장할 수 있는 ArrayList 메모리에 생성.
+		rawInstances = new ArrayList<RawInstance>(); // Instance저장할 수 있는 ArrayList 메모리에 생성.
 		
 		// 각 Java파일에 있는 코드에서 메트릭을 뽑아내기.
 		collectMetrics();
@@ -99,17 +101,17 @@ public class MetricCollector {
 	
 	private int computeNumOfMethodInvocations(JavaASTParser codeAST) {
 		// TASK1 TODO codeAST에서 매소드 호출된 개수를 가져온다.
-		return 0;
+		return codeAST.getMethodInvocations().size();
 	}
 	
 	private int computeNumOfForLoops(JavaASTParser codeAST) {
 		// TASK1 TODO codeAST에서 for loop의 개수를 가져온다.
-		return 0;
+		return codeAST.getForStatements().size();
 	}
 	
 	private int computeNumOfIfStatements(JavaASTParser codeAST) {
 		// TASK1 TODO codeAST에서 if문의 개수를 가져온다.
-		return 0;
+		return codeAST.getIfStatements().size();
 	}
 	
 	public void saveAnArffFile() {
